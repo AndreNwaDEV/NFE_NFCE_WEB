@@ -7,7 +7,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,26 +15,22 @@ import lombok.Setter;
 @Table(name="CadastroPagamentos")
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class CadastroPagamentos {
 
 	
 	
 	@Column(name = "nomeFormaDePagamento")
-	@Getter
-	@Setter
 	private String nomeFormaDePagamento;
 	
 	
 	@Column(name = "descricao")
-	@Getter
-	@Setter
 	private String descricao;
 	
 	
 	@Column(name = "TiposDePagamanto")
 	@Enumerated(value = EnumType.ORDINAL)
-	@Getter
-	@Setter
 	private TiposDePagamanto TiposDePagamanto;
 	
 	
@@ -43,8 +38,6 @@ public class CadastroPagamentos {
 	
 	@Column(name = "TipoRefPagamento")
 	@Enumerated(value = EnumType.ORDINAL)
-	@Getter
-	@Setter
 	private TipoRefPagamento TipoRefPagamento;
 	
 	
