@@ -44,6 +44,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import model.EmitenteModel;
+import model.ResponsavelTecModel;
 import net.sf.jasperreports.engine.JRException;
 import repository.EmitenteRepository;
 
@@ -227,11 +228,15 @@ private	EmitenteRepository emitenteRepository;
     }
 
     private static TInfRespTec montaRespTecnico() {
+    	
+    	
+    	ResponsavelTecModel ResponsavelTecModel=null;
+    
         TInfRespTec respTec = new TInfRespTec();
-        respTec.setCNPJ("32330160000195");
-        respTec.setXContato("Samuel Oliveira");
-        respTec.setEmail("samuel@swconsultoria.com.br");
-        respTec.setFone("62993066546");
+        respTec.setCNPJ(ResponsavelTecModel.getCnpj().toString());
+        respTec.setXContato(ResponsavelTecModel.getNome().toString());
+        respTec.setEmail(ResponsavelTecModel.getEmail().toString());
+        respTec.setFone(ResponsavelTecModel.getTelefone());
         return respTec;
     }
 

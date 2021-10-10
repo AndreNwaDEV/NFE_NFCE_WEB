@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,10 +15,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="CadatroServicos")
+@Table(name="ResponsavelTecModel")
 @NoArgsConstructor
 @AllArgsConstructor
-public class CadatroServicos implements Serializable{
+@Getter
+@Setter
+public class ResponsavelTecModel implements Serializable{
 
 	
 	/**
@@ -32,24 +32,19 @@ public class CadatroServicos implements Serializable{
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_CadatroServicos;
+	private Long id_ResponsavelTecModel;
 
+	@Column(name = "cnpj")
+	private String cnpj;
 	
-	@Column(name = "nomeDoServico")
-	@Getter
-	@Setter
-	private String nomeDoServico;
+	@Column(name = "nome")
+	private String nome;
 	
+	@Column(name = "email")
+	private String email;
 	
-	@Column(name = "TipoCodigoDaAtividade")
-	@Enumerated(value = EnumType.ORDINAL)
-	@Getter
-	@Setter
-	private TipoCodigoDaAtividade TipoCodigoDaAtividade;
-	
-	
-	
-	
+	@Column(name = "telefone")
+	private String telefone;
 	
 	
 }
