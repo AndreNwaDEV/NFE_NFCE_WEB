@@ -1,4 +1,4 @@
-package model;
+package br.com.nfetools.model;
 
 import java.io.Serializable;
 

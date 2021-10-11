@@ -1,4 +1,4 @@
-package controller;
+package br.com.nfetools.controller;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,12 +8,14 @@ import java.util.List;
 import java.util.Random;
 
 import javax.xml.parsers.ParserConfigurationException;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.xml.sax.SAXException;
+
+import br.com.nfetools.model.EmitenteModel;
+import br.com.nfetools.model.ResponsavelTecModel;
 
 import br.com.swconsultoria.certificado.Certificado;
 import br.com.swconsultoria.certificado.CertificadoService;
@@ -40,25 +42,25 @@ import br.com.swconsultoria.nfe.util.ChaveUtil;
 import br.com.swconsultoria.nfe.util.ConstantesUtil;
 import br.com.swconsultoria.nfe.util.RetornoUtil;
 import br.com.swconsultoria.nfe.util.XmlNfeUtil;
+import io.swagger.annotations.ApiOperation;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import model.EmitenteModel;
-import model.ResponsavelTecModel;
 import net.sf.jasperreports.engine.JRException;
-import repository.EmitenteRepository;
 
 
-@RequestMapping(value = "/api/")
+@RequestMapping(value ="/")
+@ApiOperation(value = "API DE INTEGRAÇÃO NFE")
 @EqualsAndHashCode
 @RestController
+@ComponentScan(basePackages={"controller"})
 @SpringBootApplication
 @Getter
 @Setter
 public class NFeController {
 
-	@Autowired
-private	EmitenteRepository emitenteRepository;
+
+
 	
 	
     private static ChaveUtil chaveUtil;
@@ -72,6 +74,11 @@ private	EmitenteRepository emitenteRepository;
     private static LocalDateTime dataEmissao;
 	private static EmitenteModel emitenteModel;
 
+
+	private static ResponsavelTecModel responsavelTecModel;
+
+
+
     public static void main(String[] args) {
         try {
             emiteNfe();
@@ -80,6 +87,13 @@ private	EmitenteRepository emitenteRepository;
         }
     }
 
+    
+    
+    
+    
+    
+    @RequestMapping(value = "/EmiteNFE")
+    @ApiOperation(value = "JUNTA TODAS AS PARTES DA NOTA FISCAL E MONTA O OBJETO NFE")
     private static void emiteNfe() throws Exception {
 
         //Inicaliza dados da Nota
@@ -126,6 +140,9 @@ private	EmitenteRepository emitenteRepository;
 
     }
 
+    
+    @RequestMapping(value = "/TestarImpressora" )
+    @ApiOperation(value = "TESTE DE IMPRESSÃO")
     private static void efetuarImpressaoNFe(String xmlFinal) throws JRException, ParserConfigurationException, IOException, SAXException {
 
         //Aqui está pegando o Layout Padrão
@@ -135,6 +152,8 @@ private	EmitenteRepository emitenteRepository;
         ImpressaoService.impressaoPdfArquivo(impressao, "/d/teste/teste-nfe-live.pdf");
     }
 
+    
+    
     private static br.com.swconsultoria.nfe.schema_4.retConsReciNFe.TRetConsReciNFe verificaEnvioAssincrono(TRetEnviNFe retorno) throws Exception {
         String recibo = retorno.getInfRec().getNRec();
         int tentativa = 1;
@@ -156,6 +175,8 @@ private	EmitenteRepository emitenteRepository;
         return retornoConsulta;
     }
 
+    @RequestMapping(value = "/MontaChaveDeAcessoNFE")
+    @ApiOperation(value = "MONTA A CHAVE DE ACESSO DA NFE")
     private static void montaChaveNFe(ConfiguracoesNfe configuracoesNfe) {
         chaveUtil = new ChaveUtil(
                 configuracoesNfe.getEstado(),
@@ -168,6 +189,8 @@ private	EmitenteRepository emitenteRepository;
                 dataEmissao);
     }
 
+    @RequestMapping(value = "/CriaEnvioNFE")
+    @ApiOperation(value = "CRIA O ENVIO DA NOTA FISCAL")
     private static TEnviNFe criaEnviNFe() {
         TEnviNFe enviNFe = new TEnviNFe();
         enviNFe.setVersao(ConstantesUtil.VERSAO.NFE);
@@ -182,6 +205,8 @@ private	EmitenteRepository emitenteRepository;
         return enviNFe;
     }
 
+    @RequestMapping(value = "/GeraNFE")
+    @ApiOperation(value = "MONTA OS OBJETOS GERANDO A NFE")
     private static TNFe.InfNFe getInfNFe() {
         TNFe.InfNFe infNFe = new TNFe.InfNFe();
         infNFe.setId(chaveUtil.getChaveNF());
@@ -200,6 +225,8 @@ private	EmitenteRepository emitenteRepository;
         return infNFe;
     }
 
+    @RequestMapping(value = "/MontaTotal")
+    @ApiOperation(value = "CALCULA ,PRODUTOS E IMPOSTOS RETORNANDO O VALOR TOTAL DA NOTA FISCAL")
     private static TNFe.InfNFe.Total montaTotal() {
         TNFe.InfNFe.Total total = new TNFe.InfNFe.Total();
         TNFe.InfNFe.Total.ICMSTot icmsTot = new TNFe.InfNFe.Total.ICMSTot();
@@ -227,19 +254,23 @@ private	EmitenteRepository emitenteRepository;
         return total;
     }
 
+    @RequestMapping(value = "/RespTecnico")
+    @ApiOperation(value = "PUXA O RESPONSAVEL TECNICO DO BANCO DE DADOS.")
     private static TInfRespTec montaRespTecnico() {
     	
-    	
-    	ResponsavelTecModel ResponsavelTecModel=null;
+    	//objeto classe
+    	responsavelTecModel = null;
     
         TInfRespTec respTec = new TInfRespTec();
-        respTec.setCNPJ(ResponsavelTecModel.getCnpj().toString());
-        respTec.setXContato(ResponsavelTecModel.getNome().toString());
-        respTec.setEmail(ResponsavelTecModel.getEmail().toString());
-        respTec.setFone(ResponsavelTecModel.getTelefone());
+        respTec.setCNPJ(responsavelTecModel.getCnpj());
+        respTec.setXContato(responsavelTecModel.getTelefone());
+        respTec.setEmail(responsavelTecModel.getEmail().toString());
+        respTec.setFone(responsavelTecModel.getTelefone());
         return respTec;
     }
 
+    @RequestMapping(value = "/Pagamento")
+    @ApiOperation(value = "INFORMAÇOES SOBRE O PAGAMENTO")
     private static TNFe.InfNFe.Pag pagamento() {
         TNFe.InfNFe.Pag pag = new TNFe.InfNFe.Pag();
         TNFe.InfNFe.Pag.DetPag detPag = new TNFe.InfNFe.Pag.DetPag();
@@ -249,12 +280,16 @@ private	EmitenteRepository emitenteRepository;
         return pag;
     }
 
+    @RequestMapping(value = "/MontaTransportadora")
+    @ApiOperation(value = "MONTA DADOS DA TRANSPORTADORA")
     private static TNFe.InfNFe.Transp montaTransportadora() {
         TNFe.InfNFe.Transp transp = new TNFe.InfNFe.Transp();
         transp.setModFrete("9");
         return transp;
     }
 
+    @RequestMapping(value = "/MontaProduto")
+    @ApiOperation(value = "MONTA O PRODUTO")
     private static List<TNFe.InfNFe.Det> montaDet() {
         TNFe.InfNFe.Det det = new TNFe.InfNFe.Det();
         det.setNItem("1");
@@ -262,7 +297,11 @@ private	EmitenteRepository emitenteRepository;
         det.setImposto(montaImposto());
         return Collections.singletonList(det);
     }
+    
+    
 
+    @RequestMapping(value = "/MontaImpostos")
+    @ApiOperation(value = "CALCULA OS IMPOSTOS DE ACORDO COM OS PRODUTOS DA NOTA")
     private static TNFe.InfNFe.Det.Imposto montaImposto() {
         TNFe.InfNFe.Det.Imposto imposto = new TNFe.InfNFe.Det.Imposto();
         criaImpostoIcms(imposto);
@@ -270,7 +309,9 @@ private	EmitenteRepository emitenteRepository;
         criaImpostoCofins(imposto);
         return imposto;
     }
-
+    
+    @RequestMapping(value = "/CriaPIS")
+    @ApiOperation(value = "CALCULA IMPOSTO PIS")
     private static void criaImpostoPis(TNFe.InfNFe.Det.Imposto imposto) {
         TNFe.InfNFe.Det.Imposto.PIS pis = new TNFe.InfNFe.Det.Imposto.PIS();
         TNFe.InfNFe.Det.Imposto.PIS.PISAliq pisAliq = new TNFe.InfNFe.Det.Imposto.PIS.PISAliq();
@@ -282,6 +323,9 @@ private	EmitenteRepository emitenteRepository;
         imposto.getContent().add(new ObjectFactory().createTNFeInfNFeDetImpostoPIS(pis));
     }
 
+    
+    @RequestMapping(value = "/CriaCOFINS")
+    @ApiOperation(value = "CALCULA IMPOSTO COFINS")
     private static void criaImpostoCofins(TNFe.InfNFe.Det.Imposto imposto) {
         TNFe.InfNFe.Det.Imposto.COFINS cofins = new TNFe.InfNFe.Det.Imposto.COFINS();
         TNFe.InfNFe.Det.Imposto.COFINS.COFINSAliq cofinsAliq = new TNFe.InfNFe.Det.Imposto.COFINS.COFINSAliq();
@@ -293,6 +337,8 @@ private	EmitenteRepository emitenteRepository;
         imposto.getContent().add(new ObjectFactory().createTNFeInfNFeDetImpostoCOFINS(cofins));
     }
 
+    @RequestMapping(value = "/CriaICMS")
+    @ApiOperation(value = "CALCULA IMPOSTO ICMS")
     private static void criaImpostoIcms(TNFe.InfNFe.Det.Imposto imposto) {
         TNFe.InfNFe.Det.Imposto.ICMS icms = new TNFe.InfNFe.Det.Imposto.ICMS();
         TNFe.InfNFe.Det.Imposto.ICMS.ICMS00 icms00 = new TNFe.InfNFe.Det.Imposto.ICMS.ICMS00();
@@ -306,6 +352,8 @@ private	EmitenteRepository emitenteRepository;
         imposto.getContent().add(new ObjectFactory().createTNFeInfNFeDetImpostoICMS(icms));
     }
 
+    @RequestMapping(value = "/MontaProduto1")
+    @ApiOperation(value = "MONTA O PRODUTO")
     private static TNFe.InfNFe.Det.Prod montaProduto() {
         TNFe.InfNFe.Det.Prod produto = new TNFe.InfNFe.Det.Prod();
         produto.setCProd("123");
@@ -327,6 +375,8 @@ private	EmitenteRepository emitenteRepository;
         return produto;
     }
 
+    @RequestMapping(value = "/MontaDestinatario")
+    @ApiOperation(value = "MONTA O DESTINARIO")
     private static TNFe.InfNFe.Dest montaDestinatario() {
         TNFe.InfNFe.Dest dest = new TNFe.InfNFe.Dest();
         dest.setXNome("NF-E EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL");
@@ -350,14 +400,14 @@ private	EmitenteRepository emitenteRepository;
 
     
     
+    @RequestMapping(value = "/MontaEmitente")
+    @ApiOperation(value = "MONTA O EMITENTE")
     private static TNFe.InfNFe.Emit montaEmitente() {
     	
-    	
-    EmitenteModel	emitenteModel =null;
-    	
+    	emitenteModel = null;
     	
     	
-    	
+    		
     	
     	
         TNFe.InfNFe.Emit emit = new TNFe.InfNFe.Emit();
@@ -381,6 +431,9 @@ private	EmitenteRepository emitenteRepository;
         return emit;
     }
 
+    
+    @RequestMapping(value = "/MontaIDE")
+    @ApiOperation(value = "MONTA A IDE")
     private static TNFe.InfNFe.Ide montaIde() {
         TNFe.InfNFe.Ide ide = new TNFe.InfNFe.Ide();
         ide.setCUF(configuracoesNfe.getEstado().getCodigoUF());

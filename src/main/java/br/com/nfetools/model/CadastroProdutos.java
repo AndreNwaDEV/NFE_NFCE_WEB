@@ -1,4 +1,4 @@
-package model;
+package br.com.nfetools.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -24,7 +24,6 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name="CadatroProdutos")
-
 @AllArgsConstructor
 public class CadastroProdutos implements Serializable{
 
@@ -37,7 +36,7 @@ public class CadastroProdutos implements Serializable{
 
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id_CadastroProdutos;
 	
 	

@@ -1,19 +1,13 @@
-package model;
+package br.com.nfetools.model;
 
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,27 +30,21 @@ public class CadastroOperacoes implements Serializable{
 
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_CadastroProdutos")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id_CadastroOperacoes;
 
 	@Column(name = "TipoOperacoes")
-	@Enumerated(value = EnumType.ORDINAL)
-	private TipoNomeOpecao TipoOperacoes;
+	private String TipoOperacoes;
 
 	@Column(name = "TipoDescricaoOperacao")
-	@Enumerated(value = EnumType.ORDINAL)
-	private TipoDescricaoOperacao TipoDescricaoOperacao;
+	private String TipoDescricaoOperacao;
 
 	@Column(name = "TipoDescricaoAdicionalOperacoes")
-	@Enumerated(value = EnumType.ORDINAL)
-	private TipoDescricaoAdicionalOperacoes TipoDescricaoAdicionalOperacoes;
+	private String TipoDescricaoAdicionalOperacoes;
 
 	
 	@Column(name = "TipoDefinicoesOperacoes")
-	@Enumerated(value = EnumType.ORDINAL)
-	private TipoDefinicoesOperacoes TipoDefinicoesOperacoes;
+	private String TipoDefinicoesOperacoes;
 	
 	
 

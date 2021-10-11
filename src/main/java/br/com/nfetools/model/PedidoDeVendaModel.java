@@ -1,4 +1,4 @@
-package model;
+package br.com.nfetools.model;
 
 import java.io.Serializable;
 
@@ -31,7 +31,7 @@ public class PedidoDeVendaModel implements Serializable{
 
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id_PedidoDeVendaModel;
 
 	@Column(name = "emissao")
@@ -49,7 +49,7 @@ public class PedidoDeVendaModel implements Serializable{
 	//CLIENTE
 	
 	@Column(name = "clienteModel")
-	private CadastroPessoas clienteModel;
+	private String clienteModel;
 	
 	
 	

@@ -1,11 +1,9 @@
-package model;
+package br.com.nfetools.model;
 
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,6 +18,8 @@ import lombok.Setter;
 @Table(name="CadatroServicos")
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class CadatroServicos implements Serializable{
 
 	
@@ -31,21 +31,16 @@ public class CadatroServicos implements Serializable{
 
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id_CadatroServicos;
 
 	
 	@Column(name = "nomeDoServico")
-	@Getter
-	@Setter
 	private String nomeDoServico;
 	
 	
 	@Column(name = "TipoCodigoDaAtividade")
-	@Enumerated(value = EnumType.ORDINAL)
-	@Getter
-	@Setter
-	private TipoCodigoDaAtividade TipoCodigoDaAtividade;
+	private String TipoCodigoDaAtividade;
 	
 	
 	

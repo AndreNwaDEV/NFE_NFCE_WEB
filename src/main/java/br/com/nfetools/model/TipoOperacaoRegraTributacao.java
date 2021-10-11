@@ -1,4 +1,4 @@
-package model;
+package br.com.nfetools.model;
 
 public enum TipoOperacaoRegraTributacao {
 

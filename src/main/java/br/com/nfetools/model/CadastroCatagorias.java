@@ -1,8 +1,8 @@
-package model;
+package br.com.nfetools.model;
 
 import java.io.Serializable;
-import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import javax.persistence.GeneratedValue;
@@ -19,6 +19,8 @@ import lombok.Setter;
 @Table(name="CadastroCatagorias")
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class CadastroCatagorias implements Serializable{
 
 	
@@ -30,15 +32,14 @@ public class CadastroCatagorias implements Serializable{
 
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id_CadastroCatagorias;
 	
 	
+	@Column(name = "CadastroProdutos")
+	private String CadastroProdutos;
 
-	private List<CadastroProdutos> CadastroProdutos;
-
-	@Getter
-	@Setter
+	@Column(name = "nome")
 	private String nome;
 	
 	

@@ -1,11 +1,9 @@
-package model;
+package br.com.nfetools.model;
 
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,7 +31,7 @@ public class CadastroPagamentos implements Serializable{
 
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id_CadastroPagamentos;
 
 	
@@ -47,15 +45,13 @@ public class CadastroPagamentos implements Serializable{
 	
 	
 	@Column(name = "TiposDePagamanto")
-	@Enumerated(value = EnumType.ORDINAL)
-	private TiposDePagamanto TiposDePagamanto;
+	private String TiposDePagamanto;
 	
 	
 	
 	
 	@Column(name = "TipoRefPagamento")
-	@Enumerated(value = EnumType.ORDINAL)
-	private TipoRefPagamento TipoRefPagamento;
+	private String TipoRefPagamento;
 	
 	
 	
