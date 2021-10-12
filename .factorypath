@@ -8,6 +8,18 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/spring-jdbc/5.3.10/spring-jdbc-5.3.10.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/jakarta/transaction/jakarta.transaction-api/1.3.3/jakarta.transaction-api-1.3.3.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/hibernate/hibernate-core/5.4.32.Final/hibernate-core-5.4.32.Final.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/javassist/javassist/3.27.0-GA/javassist-3.27.0-GA.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/net/bytebuddy/byte-buddy/1.10.22/byte-buddy-1.10.22.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/antlr/antlr/2.7.7/antlr-2.7.7.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/jboss/jandex/2.2.3.Final/jandex-2.2.3.Final.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/dom4j/dom4j/2.1.3/dom4j-2.1.3.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/hibernate/common/hibernate-commons-annotations/5.1.2.Final/hibernate-commons-annotations-5.1.2.Final.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/glassfish/jaxb/jaxb-runtime/2.3.5/jaxb-runtime-2.3.5.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/glassfish/jaxb/txw2/2.3.5/txw2-2.3.5.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/sun/istack/istack-commons-runtime/3.0.12/istack-commons-runtime-3.0.12.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/sun/activation/jakarta.activation/1.2.2/jakarta.activation-1.2.2.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/data/spring-data-jpa/2.5.5/spring-data-jpa-2.5.5.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/data/spring-data-commons/2.5.5/spring-data-commons-2.5.5.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/spring-orm/5.3.10/spring-orm-5.3.10.jar" enabled="true" runInBatchMode="false"/>
@@ -72,13 +84,13 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/plugin/spring-plugin-core/2.0.0.RELEASE/spring-plugin-core-2.0.0.RELEASE.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/plugin/spring-plugin-metadata/2.0.0.RELEASE/spring-plugin-metadata-2.0.0.RELEASE.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/br/com/swconsultoria/java-nfe/4.00.17/java-nfe-4.00.17.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/httpcomponents/httpcore/4.4.14/httpcore-4.4.14.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/sun/xml/bind/jaxb-impl/2.3.1/jaxb-impl-2.3.1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/br/com/swconsultoria/java_certificado/2.7/java_certificado-2.7.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/commons-codec/commons-codec/1.15/commons-codec-1.15.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/bouncycastle/bcprov-jdk16/1.46/bcprov-jdk16-1.46.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/ini4j/ini4j/0.5.4/ini4j-0.5.4.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/httpcomponents/httpcore/4.4.14/httpcore-4.4.14.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/sun/xml/bind/jaxb-xjc/2.3.1/jaxb-xjc-2.3.1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/sun/xml/bind/jaxb-core/2.3.0.1/jaxb-core-2.3.0.1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/axis2/axis2-kernel/1.7.5/axis2-kernel-1.7.5.jar" enabled="true" runInBatchMode="false"/>
@@ -108,6 +120,8 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.6/geronimo-javamail_1.4_spec-1.6.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/xalan/xalan/2.7.0/xalan-2.7.0.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/axis2/axis2-transport-http/1.7.5/axis2-transport-http-1.7.5.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/axis2/axis2-transport-local/1.7.5/axis2-transport-local-1.7.5.jar" enabled="true" runInBatchMode="false"/>
@@ -142,21 +156,4 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/hibernate/validator/hibernate-validator/7.0.1.Final/hibernate-validator-7.0.1.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/jboss/logging/jboss-logging/3.4.2.Final/jboss-logging-3.4.2.Final.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/hibernate/hibernate-entitymanager/5.4.32.Final/hibernate-entitymanager-5.4.32.Final.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/dom4j/dom4j/2.1.3/dom4j-2.1.3.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/hibernate/common/hibernate-commons-annotations/5.1.2.Final/hibernate-commons-annotations-5.1.2.Final.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/net/bytebuddy/byte-buddy/1.10.22/byte-buddy-1.10.22.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.1.1.Final/jboss-transaction-api_1.2_spec-1.1.1.Final.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/hibernate/hibernate-core/5.4.32.Final/hibernate-core-5.4.32.Final.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/javassist/javassist/3.27.0-GA/javassist-3.27.0-GA.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/antlr/antlr/2.7.7/antlr-2.7.7.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/jboss/jandex/2.2.3.Final/jandex-2.2.3.Final.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/glassfish/jaxb/jaxb-runtime/2.3.5/jaxb-runtime-2.3.5.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/glassfish/jaxb/txw2/2.3.5/txw2-2.3.5.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/sun/istack/istack-commons-runtime/3.0.12/istack-commons-runtime-3.0.12.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/sun/activation/jakarta.activation/1.2.2/jakarta.activation-1.2.2.jar" enabled="true" runInBatchMode="false"/>
 </factorypath>
